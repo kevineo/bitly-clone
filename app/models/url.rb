@@ -5,6 +5,9 @@ class Url < ActiveRecord::Base
 		self.shortened_url = "localhost/#{self.shortened_url}"
 	end
 
+	def save(url)
+	end
+
 end
 
 
