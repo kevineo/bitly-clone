@@ -1,10 +1,46 @@
-<h1>Hello World</h1>
-<br>
-<p> This is my test app </p>
-<br> 
-<form action="/urls" method="post">
-	Enter URL:
-	<input type="text" name="long_url">
-	<input type="submit" value="Submit">
-</form>
+<head>  
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+</head>
 
+<div class="header">
+		<img src="../img/chomp_logo1.png"></img>
+</div>
+
+  <body background="../img/sandwich.jpg"> 
+    <div class = "well">
+    	<p>Because copying and pasting full links is no fun <i class="fa fa-frown-o"></i>.</p>
+    </div>
+    <div>
+    <div class="floating-box-left">
+    	<form action="/urls" method="post" class="display">
+    		Enter URL:
+    		<input type="text" name="long_url">
+    		<input type="submit" value="Submit">
+    	</form>
+    </div>
+
+    <div class="floating-box-right">
+    	<p class ="display">Aaaaand here's your link wiseass:<a href= "<%=@url.last.shortened_url %>"> <%=@url.last.shortened_url %></a></p>
+    </div>
+    </body>
+
+
+  <table class= "center">
+  <tr>
+    <th>Original Url</th>
+    <th>Chomped Url</th>
+    <th>Clicks</th>
+  </tr>
+  <% @url.all.each do |url| %>
+  	<tr>
+    <td><%= url.long_url.first(50) %></td>
+    <td><%= url.shortened_url %></td>
+    <td><%= url.click_count %></td>
+  </tr>
+    <% end %>
+</table>
+
+
+<footer>
+<i class="fa fa-github-square">@kevineo</i>
+</footer>

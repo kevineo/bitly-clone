@@ -1,6 +1,7 @@
 
 
 get '/' do
+  @url = Url.all
    erb :"static/index"
  end
 #gets index page from static folder
@@ -19,6 +20,7 @@ end
 #i.e. /a7hh2
 get '/:shortened_url' do
     url = Url.find_by(shortened_url: params[:shortened_url])
+    url.add_click_count
     redirect url.long_url
  # redirect to appropriate "long" URL
 end
