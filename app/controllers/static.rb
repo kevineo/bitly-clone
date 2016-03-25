@@ -1,5 +1,3 @@
-
-
 get '/' do
   @url = Url.all
    erb :"static/index"

@@ -41,7 +41,7 @@
     font-style: bold;
 }
 
-.display {
+.form {
     display: inline-block;
 }
 
@@ -53,10 +53,23 @@ table.center {
     margin-left:auto; 
     margin-right:auto;
     font-family: ubuntu;
-    font-stretch: 10px;
-    padding-bottom: 100px;
+    font-stretch: 5px;
+    padding-bottom: 10px;
+    border: 1px solid black;
   }
 
+td {
+    border: 1px;
+    border-color: #e6e6ff;
+}
+
+
+/* to fix
+
+tr {
+    tr:hover{background-color: #f5f5f5}
+}
+*/
 
 .nav {
     line-height:30px;
@@ -74,10 +87,13 @@ table.center {
     font-family: ubuntu;	 	 
 }
 .footer {
-    background-color:black;
-    color:white;
-    clear:both;
-    text-align:center;
-    padding:5px;	
-    font-family: ubuntu; 	 
+    color:black;
+    font-family: ubuntu;
+    overflow: auto; 	 
+}
+
+p {
+    color:black;
+    font-family: ubuntu;
+    overflow: auto;     
 }

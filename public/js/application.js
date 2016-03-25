@@ -1,8 +1,23 @@
-$(document).ready(function(params) {
+$(document).ready(function() {
 	$('.header').mouseenter(function() {
-		$('.header').fadeTo('fast', 1);
+		$('.header').fadeTo('slow', 0.5);
 	});
 	$('.header').mouseleave(function(){
-		$('.header').fadeTo('fast', 0.5);
+		$('.header').fadeTo('slow', 1);
+	});
+
+	$( '.form' ).submit(function( event ) {
+	  if ( $( 'input:first' ).val() != 'http' ) {
+	    $( 'span' ).text( "Validated..." ).show();
+	    return;
+	  };
+	 
+	 $( 'span' ).text( "Not valid!" ).show().fadeOut( 1000 );
+	  event.preventDefault();
 	});
 });
+//
+
+//
+
+

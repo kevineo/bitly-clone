@@ -14,15 +14,18 @@
     </div>
     <div>
     <div class="floating-box-left">
-    	<form action="/urls" method="post" class="display">
+    	<form action="/urls" method="post" class="form">
     		Enter URL:
     		<input type="text" name="long_url">
     		<input type="submit" value="Submit">
     	</form>
+      <span></span>
     </div>
 
     <div class="floating-box-right">
-    	<p class ="display">Aaaaand here's your link wiseass:<a href= "<%=@url.last.shortened_url %>"> <%=@url.last.shortened_url %></a></p>
+    <% unless Url.count == 0 %>
+    	<p class ="display">Aaaaand here's your link wiseass:<a href= "<%= Url.last.shortened_url %>"> <%= Url.last.shortened_url %></a></p>
+      <%end %>
     </div>
     </body>
 
@@ -33,9 +36,9 @@
     <th>Chomped Url</th>
     <th>Clicks</th>
   </tr>
-  <% @url.all.each do |url| %>
+  <% @url.limit(10).each do |url| %>
   	<tr>
-    <td><%= url.long_url.first(50) %></td>
+    <td><%= url.long_url.first(40) %></td>
     <td><%= url.shortened_url %></td>
     <td><%= url.click_count %></td>
   </tr>
